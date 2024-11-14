@@ -1,0 +1,33 @@
+<nav aria-label="breadcrumb" class="mb-4">
+<ol class="breadcrumb p-3 mb-4 rounded" style="background-color: #f8f9fa;">
+    <li class="breadcrumb-item"><%= link_to 'All Courses', courses_path %></li>
+    <li class="breadcrumb-item"><%= link_to @course.title, course_path(@course) %></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Course</li>
+  </ol>
+</nav>
+<h1>Edit Course</h1>
+
+<%= form_with(model: @course, local: true) do |form| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <ul>
+        <% @course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description, class: "form-control" %> <!-- Changed to rich_text_area -->
+  </div>
+
+  <%= form.submit "Update Course", class: "btn btn-primary" %>
+<% end %>

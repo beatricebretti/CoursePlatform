@@ -1,0 +1,67 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import 'actiontext.css';
+@import "trix/dist/trix";
+
+.jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+  html, body {
+    height: 100%;
+    margin: 0; 
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  main {
+    flex-grow: 1; 
+  }
+  
+  .footer {
+    background-color: #343a40;
+    color: #ffffff;
+
+  }
+  
+  .navbar {
+    margin-bottom: 1rem;
+  }
+  .navbar-brand {
+    padding-left: 20px; 
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .mt-3 {
+    margin-top: 1rem !important;
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+  .navbar-nav .nav-item.active .nav-link {
+    background-color: #007bff; /* Highlight color */
+    font-weight: bold;
+    color: white;
+  }
+  
+

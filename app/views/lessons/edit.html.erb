@@ -1,0 +1,37 @@
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb p-3 mb-4 rounded" style="background-color: #f8f9fa;">
+    <li class="breadcrumb-item"><%= link_to 'All Courses', courses_path %></li>
+    <li class="breadcrumb-item"><%= link_to @course.title, course_path(@course) %></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Lesson: <%= @lesson.title %></li>
+  </ol>
+</nav>
+
+<div class="container">
+  <h1>Edit Lesson</h1>
+  <p>Update the details of the lesson below. Once you are finished, click "Save Changes" to apply your updates.</p>
+
+  <%= form_with(model: [@course, @lesson], local: true) do |form| %>
+    <% if @lesson.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+        <ul>
+          <% @lesson.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Save Changes", class: "btn btn-primary" %>
+  <% end %>
+</div>

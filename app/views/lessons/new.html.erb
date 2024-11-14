@@ -1,0 +1,26 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb p-3 mb-4 rounded" style="background-color: #f8f9fa;">
+    <li class="breadcrumb-item"><%= link_to 'All Courses', courses_path %></li>
+    <li class="breadcrumb-item"><%= link_to @course.title, course_path(@course) %></li>
+    <li class="breadcrumb-item active" aria-current="page">New Lesson</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <h1>Create a New Lesson</h1>
+  <p>Fill in the details below to create a new lesson for the course "<%= @course.title %>".</p>
+
+  <%= form_with model: [@course, @lesson], local: true do |form| %>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content, class: 'form-control' %>
+    </div>
+
+    <%= form.submit "Create Lesson", class: 'btn btn-primary' %>
+  <% end %>
+</div>
